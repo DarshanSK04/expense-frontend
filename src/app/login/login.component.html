@@ -1,26 +1,48 @@
-<div class="login-container">
-    <form>
-      <h2>Login</h2>
-  
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" [(ngModel)]="loginObj.email" id="email" name="email" required />
+<div class="container-fluid login-wrapper d-flex align-items-center justify-content-center min-vh-100">
+  <div class="card login-card shadow-lg border-0 rounded-4 p-4 w-100" style="max-width: 400px;">
+    <h2 class="text-center mb-4 fw-semibold">Login</h2>
+
+    <form (ngSubmit)="onLoginClick()" #loginForm="ngForm">
+      <div class="form-group mb-3">
+        <label for="email" class="fw-medium">Email</label>
+        <input
+          type="email"
+          [(ngModel)]="loginObj.email"
+          id="email"
+          name="email"
+          class="form-control"
+          required
+          placeholder="Enter your email"
+        />
       </div>
-  
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" [(ngModel)]="loginObj.password" id="password" name="password" required />
+
+      <div class="form-group mb-3">
+        <label for="password" class="fw-medium">Password</label>
+        <input
+          type="password"
+          [(ngModel)]="loginObj.password"
+          id="password"
+          name="password"
+          class="form-control"
+          required
+          placeholder="Enter your password"
+        />
       </div>
-  
-      <div class="form-group">
-        <button type="button" (click)="onLoginClick()">Login</button>
+
+      <button type="submit" class="btn btn-primary w-100 py-2 rounded-3 fw-semibold">
+        Login
+      </button>
+
+      <div class="text-center mt-3">
+        <p class="mb-1">
+          Don’t have an account?
+          <a routerLink="/registration" class="text-decoration-none text-primary fw-semibold">Register here</a>
+        </p>
+        <p>
+          Forgot Password?
+          <a routerLink="/passwordreset" class="text-decoration-none text-primary fw-semibold">Reset</a>
+        </p>
       </div>
-  
-      <p class="signup-link">
-        Don't have an account? <a routerLink="/registration">Register here</a>
-      </p>
-      <p class="signup-link">
-        Forgot Password? <a routerLink="/passwordreset">Reset</a>
-      </p>
     </form>
   </div>
+</div>
