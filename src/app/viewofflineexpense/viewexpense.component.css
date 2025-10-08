@@ -1,0 +1,70 @@
+ /* Navbar */
+ .navbar {
+  background: linear-gradient(90deg, #673ab7, #512da8);
+  color: white;
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  font-size: 20px;
+}
+
+.welcome {
+  font-weight: 600;
+  font-size: 22px;
+}
+.welcome::before {
+  content: "👋";
+}
+
+
+.logout {
+  background-color: #ff5252;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout:hover {
+  background-color: #e53935;
+  transform: scale(1.05);
+}
+
+.container {
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #007BFF;
+    color: white;
+  }
+  
+  button {
+    padding: 6px 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: darkred;
+  }

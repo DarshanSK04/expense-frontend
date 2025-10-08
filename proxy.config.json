@@ -1,0 +1,12 @@
+{
+    "/adduser": {
+      "target": "https://registerapp-1-2fcd.onrender.com",
+      "secure": false,
+      "changeOrigin": true
+    },
+    "/loginUser": {
+      "target": "https://registerapp-1-2fcd.onrender.com",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }

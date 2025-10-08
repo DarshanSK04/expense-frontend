@@ -1,0 +1,21 @@
+<div class="login-container">
+    <form>
+      <h2>Enter OTP</h2>
+  
+      <div class="form-group">
+        <label for="email">OTP</label>
+        <input type="text" [(ngModel)]="otpObj.otp" id="email" name="email" required />
+      </div>
+  
+     
+  
+      <div class="form-group">
+        <button type="button" (click)="onLoginClick()">Submit OTP</button>
+      </div>
+  
+      <p class="signup-link">
+        Back to login? <a routerLink="/login">Login</a>
+      </p>
+    </form>
+  </div>
+
