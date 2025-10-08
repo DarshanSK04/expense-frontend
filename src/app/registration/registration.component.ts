@@ -36,7 +36,7 @@ export class RegistrationComponent {
       return;
     }
   
-    this.http.post("${this.baseUrl}/adduser", this.registerObj)
+    this.http.post(`${this.baseUrl}/adduser`, this.registerObj)
       .subscribe({
         next: (res: any) => {
           console.log("API Response", res);
