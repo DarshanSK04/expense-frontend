@@ -1,84 +1,120 @@
-<div class="form-container">
-    <h2>Register</h2>
+<div class="container-fluid register-wrapper d-flex align-items-center justify-content-center min-vh-100">
+  <div class="card register-card shadow-lg border-0 rounded-4 p-4 w-100" style="max-width: 420px;">
+    <h2 class="text-center mb-4 fw-semibold">Create Account</h2>
+
     <form #regForm="ngForm" (ngSubmit)="onClick()" novalidate>
       <!-- First Name -->
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label for="fname">First Name</label>
-        <input type="text" id="fname" name="fname" [(ngModel)]="registerObj.fname" required />
+        <input
+          type="text"
+          id="fname"
+          name="fname"
+          class="form-control"
+          [(ngModel)]="registerObj.fname"
+          required
+          placeholder="Enter first name"
+        />
         <div class="error" *ngIf="regForm.submitted && !registerObj.fname">First name is required</div>
       </div>
-  
+
       <!-- Last Name -->
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label for="lname">Last Name</label>
-        <input type="text" id="lname" name="lname" [(ngModel)]="registerObj.lname" required />
+        <input
+          type="text"
+          id="lname"
+          name="lname"
+          class="form-control"
+          [(ngModel)]="registerObj.lname"
+          required
+          placeholder="Enter last name"
+        />
         <div class="error" *ngIf="regForm.submitted && !registerObj.lname">Last name is required</div>
       </div>
-     
-  
+
       <!-- Email -->
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" [(ngModel)]="registerObj.email" #emailField="ngModel" required email />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="form-control"
+          [(ngModel)]="registerObj.email"
+          #emailField="ngModel"
+          required
+          placeholder="Enter your email"
+        />
         <div class="error" *ngIf="regForm.submitted && (!registerObj.email || !emailField.valid)">
           Enter a valid email address
         </div>
       </div>
-  
+
       <!-- Password -->
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label for="password">Password</label>
         <input
           type="password"
           id="password"
           name="password"
+          class="form-control"
           [(ngModel)]="registerObj.password"
           minlength="6"
           maxlength="8"
           required
+          placeholder="6–8 characters"
         />
         <div class="error" *ngIf="regForm.submitted && (!registerObj.password || registerObj.password.length < 6)">
           Password must be 6 to 8 characters
         </div>
       </div>
-  
+
       <!-- Confirm Password -->
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label for="confirm">Confirm Password</label>
         <input
           type="password"
           id="confirm"
           name="confirm"
+          class="form-control"
           [(ngModel)]="registerObj.confirm"
           required
+          placeholder="Re-enter password"
         />
         <div class="error" *ngIf="regForm.submitted && registerObj.confirm !== registerObj.password">
           Passwords do not match
         </div>
       </div>
-  
+
       <!-- Phone Number -->
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label for="phone">Phone Number</label>
         <input
           type="tel"
           id="phone"
           name="phone"
+          class="form-control"
           maxlength="10"
           pattern="[0-9]{10}"
           [(ngModel)]="registerObj.phone"
           required
+          placeholder="Enter 10-digit phone number"
         />
-        
       </div>
-  
-      <!-- Submit Button -->
-      <div class="form-group">
-        <button type="submit" [disabled]="!regForm.valid">Register</button>
+
+      <!-- Submit -->
+      <button type="submit" [disabled]="!regForm.valid" class="btn btn-primary w-100 py-2 rounded-3 fw-semibold">
+        Register
+      </button>
+
+      <!-- Link -->
+      <div class="text-center mt-3">
+        <p>
+          Already have an account?
+          <a routerLink="/login" class="text-decoration-none text-primary fw-semibold">Login here</a>
+        </p>
       </div>
-  
-      <p class="signup-link">
-        Already have an account? <a routerLink="/login">Login</a>
-      </p>
     </form>
   </div>
+</div>
