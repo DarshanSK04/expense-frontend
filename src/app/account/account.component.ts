@@ -44,15 +44,51 @@ export class AccountComponent implements OnInit {
       return;
     }
 
-    this.http.put(`${this.baseUrl}/api/user/change-password`, {
+    this.http.post(`${this.baseUrl}/changePassword`,{
       email: this.user.email,
       oldPassword: this.oldPassword,
       newPassword: this.newPassword
-    }).subscribe({
-      next: () => alert("Password changed successfully ✅"),
-      error: () => alert("Old password is incorrect ❌")
-    });
-  }
+    } )
+  .subscribe({
+    next: (res: any) => {
+      if (res && res.message === 'Password updated successfully ✅') {
+        alert('Password changed successfully!');
+      } else if (res && res.message === 'Old password incorrect ❌') {
+        alert('Old password is incorrect ❌');
+      } else {
+        alert('Unexpected response. Please try again.');
+      }
+    },
+    error: (err) => {
+      console.error(err);
+      alert('Server error. Please try again later!');
+    }
+  });
+
+
+  this.http.put(`${this.baseUrl}/api/user/change-password`, {
+    email: this.user.email,
+    oldPassword: this.oldPassword,
+    newPassword: this.newPassword
+  }).subscribe({
+    next: (res: any) => {
+      if (res.message === "Password updated successfully ✅") {
+        alert("✅ Password Changed Successfully!");
+      } else {
+        alert("Something went wrong!");
+      }
+    },
+    error: (err) => {
+      if (err.error?.message === "Old password incorrect ❌") {
+        alert("❌ Old password is incorrect!");
+      } else {
+        alert("🚨 Server error. Please try again!");
+      }
+    }
+  })
+};
+  
+  
 
   logout() {
     localStorage.clear();
