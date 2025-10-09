@@ -42,4 +42,15 @@ export class NavbarcomponentComponent {
     this.router.navigate(['/login']);
   }
 
+  menuOpen = false;
+
+toggleMenu() {
+  this.menuOpen = !this.menuOpen;
+}
+
+closeMenu() {
+  this.menuOpen = false;
+}
+
+
 }

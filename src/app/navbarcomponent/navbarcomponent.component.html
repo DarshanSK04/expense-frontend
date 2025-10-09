@@ -1,13 +1,15 @@
-<div class="navbar">
-    <div class="welcome">Hello {{name}}</div>
-  
-    <div class="nav-links">
-      <a routerLink="/dash-board">🏠 Dashboard</a>
-      <a routerLink="/addexpense">📝 Add Expense</a>
-      <a routerLink="/viewexpense">📊 All Expenses</a>
-      <a routerLink="/viewonlineexpense">💳 Online</a>
-      <a routerLink="/viewofflineexpense">💵 Offline</a>
-      
-      <a class="logout-link" routerLink="/login">🚪 Logout</a>
-    </div>
+<nav class="navbar">
+  <div class="navbar-brand">
+    <span class="welcome">👋 Hello {{ name }}</span>
+    <button class="menu-toggle" (click)="toggleMenu()">☰</button>
   </div>
+
+  <div class="nav-links" [class.active]="menuOpen">
+    <a routerLink="/dash-board" (click)="closeMenu()">🏠 Dashboard</a>
+    <a routerLink="/addexpense" (click)="closeMenu()">📝 Add Expense</a>
+    <a routerLink="/viewexpense" (click)="closeMenu()">📊 All Expenses</a>
+    <a routerLink="/viewonlineexpense" (click)="closeMenu()">💳 Online</a>
+    <a routerLink="/viewofflineexpense" (click)="closeMenu()">💵 Offline</a>
+    <a class="logout-link" routerLink="/login" (click)="closeMenu()">🚪 Logout</a>
+  </div>
+</nav>
