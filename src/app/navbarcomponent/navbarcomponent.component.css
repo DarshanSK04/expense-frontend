@@ -10,9 +10,10 @@
   color: white;
   padding: 1rem 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 2rem;
   align-items: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   font-size: 18px;
   flex-wrap: wrap;
   position: sticky;
@@ -20,18 +21,21 @@
   z-index: 1000;
 }
 
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
+/* 👇 "Hello Darshan" white color & left aligned */
 .welcome {
   font-weight: 600;
   font-size: 22px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
+.welcome::before {
+  content: "👋";
+}
+
+/* 👇 Hide menu toggle in desktop */
 .menu-toggle {
   display: none;
   background: transparent;
@@ -41,11 +45,12 @@
   cursor: pointer;
 }
 
+/* 👇 Desktop links alignment fix */
 .nav-links {
   display: flex;
-  gap: 1.2rem;
   align-items: center;
-  flex-wrap: wrap;
+  gap: 1rem;
+  margin-left: auto;
 }
 
 .nav-links a {
@@ -56,6 +61,7 @@
   padding: 0.5rem 1rem;
   border-radius: 6px;
   transition: background 0.3s, transform 0.2s;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -66,14 +72,13 @@
 .logout-link {
   background-color: #ff5252 !important;
   color: white !important;
-  border-radius: 6px;
 }
 
 .logout-link:hover {
   background-color: #e53935 !important;
 }
 
-/* ✅ Mobile Responsive Navbar */
+/* ✅ Mobile Responsive */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
