@@ -44,28 +44,29 @@ export class AccountComponent implements OnInit {
       return;
     }
 
-    this.http.post(`${this.baseUrl}/changePassword`,{
+    this.http.put(`${this.baseUrl}/api/user/change-password`, {
       email: this.user.email,
       oldPassword: this.oldPassword,
       newPassword: this.newPassword
-    } )
-  .subscribe({
-    next: (res: any) => {
-      if (res && res.message === 'Password updated successfully ✅') {
-        alert('Password changed successfully!');
-      } else if (res && res.message === 'Old password incorrect ❌') {
-        alert('Old password is incorrect ❌');
-      } else {
-        alert('Unexpected response. Please try again.');
+    }, {
+      headers: { 'Content-Type': 'application/json' }
+    }).subscribe({
+      next: (res: any) => {
+        if (res.message === "Password updated successfully ✅") {
+          alert("✅ Password Changed Successfully!");
+        }
+      },
+      error: (err) => {
+        if (err.error?.message === "Old password incorrect ❌") {
+          alert("❌ Old password is incorrect!");
+        } else {
+          alert("🚨 Server error. Please try again!");
+        }
       }
-    },
-    error: (err) => {
-      console.error(err);
-      alert('Server error. Please try again later!');
-    }
-  });
+    });
+    
   } 
-  
+
   logout() {
     localStorage.clear();
     this.router.navigate(['/login']);
