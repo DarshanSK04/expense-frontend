@@ -32,9 +32,7 @@
   gap: 6px;
 }
 
-.welcome::before {
-  content: "👋";
-}
+
 
 /* 👇 Hide menu toggle in desktop */
 .menu-toggle {
