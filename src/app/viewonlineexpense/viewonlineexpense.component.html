@@ -1,7 +1,7 @@
 <app-navbarcomponent></app-navbarcomponent>
 
-<div class="container">
-  <h2>Your Offline Expenses</h2>
+<div class="expenses-container">
+  <h2>Your Online Expenses</h2>
 
   <div class="table-wrapper">
     <table>
@@ -9,28 +9,30 @@
         <tr>
           <th>ID</th>
           <th>Description</th>
-          <th>Amount (₹)</th>
+          <th>Amount</th>
           <th>Category</th>
-          <th>Payment Method</th>
+          <th>Payment</th>
           <th>Date</th>
-          <th colspan="2">Actions</th>
+          <th>Actions</th>
         </tr>
       </thead>
 
       <tbody>
         <tr *ngFor="let exp of expenses">
-          <td>{{ exp.id }}</td>
-          <td>{{ exp.description }}</td>
-          <td>₹{{ exp.amount }}</td>
-          <td>{{ exp.category }}</td>
-          <td>{{ exp.paymentMethod }}</td>
-          <td>{{ exp.transactionDate }}</td>
-          <td><button class="delete-btn" (click)="deleteExpense(exp.id)">🗑 Delete</button></td>
-          <td><button class="edit-btn" (click)="editExpense(exp.id)">✏ Edit</button></td>
+          <td data-label="ID">{{ exp.id }}</td>
+          <td data-label="Description">{{ exp.description }}</td>
+          <td data-label="Amount">₹{{ exp.amount }}</td>
+          <td data-label="Category">{{ exp.category }}</td>
+          <td data-label="Payment">{{ exp.paymentMethod }}</td>
+          <td data-label="Date">{{ exp.transactionDate }}</td>
+          <td class="action-buttons" data-label="Actions">
+            <button class="delete-btn" (click)="deleteExpense(exp.id)">Delete</button>
+            <button class="edit-btn" (click)="editExpense(exp.id)">Edit</button>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <h3 class="total-expense-heading">💰 Total Expense: ₹{{ totalAmount }}</h3>
+  <h3 class="total-expense-heading">Total Expense: ₹{{ totalAmount }}</h3>
 </div>

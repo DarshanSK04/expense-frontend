@@ -6,49 +6,41 @@
 }
 
 body {
-  background: linear-gradient(to right, #f4f4f4, #e0eafc);
   margin: 0;
-  padding: 0;
+  background: #f3f4f8;
 }
 
-/* ===== Container ===== */
-.container {
+.expenses-container {
   width: 95%;
   max-width: 1100px;
-  margin: 60px auto;
+  margin: 40px auto;
   background: #ffffff;
   border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   padding: 30px;
-  text-align: center;
   transition: transform 0.3s ease;
 }
 
-.container:hover {
+.expenses-container:hover {
   transform: scale(1.01);
 }
 
-/* ===== Heading ===== */
 h2 {
-  margin-bottom: 25px;
-  color: #333;
+  text-align: center;
+  color: #512da8;
   font-weight: 600;
-  font-size: 26px;
+  margin-bottom: 25px;
 }
 
-/* ===== Table Wrapper (scrollable on mobile) ===== */
 .table-wrapper {
   overflow-x: auto;
 }
 
-/* ===== Table ===== */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 15px;
   border-radius: 10px;
   overflow: hidden;
-  min-width: 600px;
 }
 
 th, td {
@@ -58,84 +50,114 @@ th, td {
 }
 
 th {
-  background-color: #007bff;
+  background-color: #673ab7;
   color: #fff;
   text-transform: uppercase;
   font-size: 14px;
 }
 
 td {
-  color: #333;
   font-size: 15px;
-  background-color: #fafafa;
-  transition: background-color 0.3s ease;
+  color: #333;
+  background-color: #f9f9f9;
 }
 
 tr:nth-child(even) td {
-  background-color: #f1f5ff;
+  background-color: #f1f1f1;
 }
 
 tr:hover td {
-  background-color: #dcecff;
+  background-color: #ede7f6;
 }
 
-/* ===== Buttons ===== */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
 button {
-  padding: 8px 14px;
+  padding: 7px 14px;
   font-size: 14px;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  width: 90px;
+  color: white;
+  transition: 0.3s;
 }
 
 .delete-btn {
-  background-color: #ff5252;
-  color: white;
-}
-
-.delete-btn:hover {
-  background-color: #e53935;
+  background-color: #ff4d4f;
 }
 
 .edit-btn {
   background-color: #4caf50;
-  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #d9363e;
 }
 
 .edit-btn:hover {
   background-color: #388e3c;
 }
 
-/* ===== Total ===== */
 .total-expense-heading {
-  margin-top: 25px;
-  font-weight: 600;
-  color: #4a148c;
+  text-align: center;
+  margin-top: 20px;
   font-size: 20px;
+  color: #4a148c;
+  font-weight: 600;
 }
 
-/* ===== Responsive ===== */
+/* ✅ Mobile Responsive Styles */
 @media (max-width: 768px) {
-  .container {
-    padding: 20px;
-    margin: 20px;
+  .expenses-container {
+    padding: 15px;
   }
 
-  h2 {
-    font-size: 22px;
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
   }
 
-  th, td {
-    padding: 10px;
-    font-size: 13px;
+  thead {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 15px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    padding: 12px;
+  }
+
+  td {
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 6px;
+    font-size: 15px;
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #673ab7;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 6px;
   }
 
   button {
-    width: 70px;
-    font-size: 12px;
-    padding: 6px 10px;
+    width: 100%;
   }
 
   .total-expense-heading {
