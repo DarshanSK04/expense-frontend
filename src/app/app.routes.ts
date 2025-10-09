@@ -77,7 +77,7 @@ export const routes: Routes = [
       }
       ,
       {
-        path: 'accountcomponent',
+        path: 'account',
         component: AccountComponent
       }
 ];
