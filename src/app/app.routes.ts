@@ -12,6 +12,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { PasswordresetComponent } from './passwordreset/passwordreset.component';
 import { OtpvalidationComponent } from './otpvalidation/otpvalidation.component';
 import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
+import { AccountComponent } from './account/account.component';
 
 
 
@@ -73,5 +74,10 @@ export const routes: Routes = [
       {
         path: 'updatepassword',
         component: UpdatepasswordComponent
+      }
+      ,
+      {
+        path: 'accountcomponent',
+        component: AccountComponent
       }
 ];

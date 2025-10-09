@@ -1,0 +1,70 @@
+
+.account-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #512da8;
+  }
+  
+  .info-section p {
+    margin: 10px 0;
+    color: #444;
+  }
+  
+  .password-section input {
+    width: 100%;
+    margin: 6px 0;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  .password-section button {
+    width: 100%;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  .password-section button:hover {
+    background: #0056b3;
+  }
+  
+  .action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 25px;
+  }
+  
+  .logout-btn {
+    background: #ff9800;
+    color: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+  }
+  
+  .delete-btn {
+    background: #f44336;
+    color: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+  }
+  
+  .logout-btn:hover { background: #e68900; }
+  .delete-btn:hover { background: #d32f2f; }
+  

@@ -1,0 +1,27 @@
+<div class="account-container">
+    <h2>👤 My Account</h2>
+  
+    <div class="info-section">
+      <p><strong>Full Name:</strong> {{ user.fname }} {{ user.lname }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Phone:</strong> {{ user.phone }}</p>
+    </div>
+  
+    <hr>
+  
+    <div class="password-section">
+      <h3>Change Password</h3>
+      <input type="password" placeholder="Old Password" [(ngModel)]="oldPassword">
+      <input type="password" placeholder="New Password" [(ngModel)]="newPassword">
+      <input type="password" placeholder="Confirm New Password" [(ngModel)]="confirmPassword">
+      <button (click)="changePassword()">Change Password</button>
+    </div>
+  
+    <hr>
+  
+    <div class="action-buttons">
+      <button class="logout-btn" (click)="logout()">Logout</button>
+      <button class="delete-btn" (click)="confirmDelete()">Delete Account</button>
+    </div>
+  </div>
+  
