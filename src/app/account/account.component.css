@@ -1,70 +1,75 @@
-
 .account-container {
-    max-width: 500px;
-    margin: 40px auto;
-    padding: 25px;
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  h2 {
-    text-align: center;
-    color: #512da8;
-  }
-  
-  .info-section p {
-    margin: 10px 0;
-    color: #444;
-  }
-  
-  .password-section input {
-    width: 100%;
-    margin: 6px 0;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-  }
-  
-  .password-section button {
-    width: 100%;
-    background: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 6px;
-    margin-top: 10px;
-    cursor: pointer;
-  }
-  
-  .password-section button:hover {
-    background: #0056b3;
-  }
-  
-  .action-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 25px;
-  }
-  
-  .logout-btn {
-    background: #ff9800;
-    color: #fff;
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
-  }
-  
-  .delete-btn {
-    background: #f44336;
-    color: #fff;
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
-  }
-  
-  .logout-btn:hover { background: #e68900; }
-  .delete-btn:hover { background: #d32f2f; }
-  
+  max-width: 500px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+.account-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+
+.account-header h2 {
+  color: #512da8;
+  font-weight: 600;
+  margin: 0;
+}
+
+.account-info {
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.account-info p {
+  margin: 6px 0;
+  color: #333;
+  font-size: 15px;
+}
+
+hr {
+  margin: 1.5rem 0;
+  border: 0;
+  border-top: 1px solid #ddd;
+}
+
+/* Input spacing improve */
+input[type="password"] {
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s ease;
+}
+
+button.change-btn {
+  background-color: #007bff;
+}
+
+button.logout-btn {
+  background-color: white;
+}
+
+button.delete-btn {
+  background-color: #ffffff;
+}
+
+button:hover {
+  opacity: 0.9;
+}

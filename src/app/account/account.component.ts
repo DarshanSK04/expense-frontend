@@ -64,32 +64,8 @@ export class AccountComponent implements OnInit {
       alert('Server error. Please try again later!');
     }
   });
-
-
-  this.http.put(`${this.baseUrl}/api/user/change-password`, {
-    email: this.user.email,
-    oldPassword: this.oldPassword,
-    newPassword: this.newPassword
-  }).subscribe({
-    next: (res: any) => {
-      if (res.message === "Password updated successfully ✅") {
-        alert("✅ Password Changed Successfully!");
-      } else {
-        alert("Something went wrong!");
-      }
-    },
-    error: (err) => {
-      if (err.error?.message === "Old password incorrect ❌") {
-        alert("❌ Old password is incorrect!");
-      } else {
-        alert("🚨 Server error. Please try again!");
-      }
-    }
-  })
-};
+  } 
   
-  
-
   logout() {
     localStorage.clear();
     this.router.navigate(['/login']);
