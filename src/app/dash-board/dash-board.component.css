@@ -1,63 +1,141 @@
-.container {
-    padding: 30px;
-    max-width: 1100px;
-    margin: auto;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f3f4f8;
+}
+
+.dashboard-container {
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 30px auto;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+  text-align: center;
+  color: #512da8;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.month-section {
+  margin-bottom: 40px;
+  background: #f7f5ff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.month-section:hover {
+  transform: translateY(-2px);
+}
+
+h3 {
+  color: #3b3b3b;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 14px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #673ab7;
+  color: white;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+tr:nth-child(even) td {
+  background-color: #f3f0ff;
+}
+
+td {
+  font-size: 15px;
+  color: #333;
+}
+
+.monthly-total {
+  margin-top: 15px;
+  font-weight: 600;
+  color: #4a148c;
+  font-size: 18px;
+  text-align: center;
+}
+
+.monthly-total span {
+  color: #673ab7;
+}
+
+/* ✅ Mobile Responsive Styling */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
   }
-  
-  h2 {
-    text-align: center;
-    color: #512da8;
-    margin-bottom: 30px;
-    font-size: 28px;
-    font-family: 'Poppins';
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
   }
-  
-  .month-section {
-    margin-bottom: 40px;
-    background: #f5f5f5;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+
+  thead {
+    display: none;
   }
-  
-  h3 {
-    color: #333;
-    margin-bottom: 10px;
-    font-size: 22px;
-    font-family: 'Poppins';
+
+  tr {
+    background: #fff;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 10px;
   }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
+
+  td {
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 5px;
+    font-size: 15px;
   }
-  
-  th, td {
-    padding: 12px;
-    border: 1px solid #ddd;
-    text-align: center;
-    font-family: 'Poppins';
-  }
-  
-  th {
-    background-color: #673ab7;
-    color: white;
-    text-transform: uppercase;
-    font-family: 'Poppins';
-  }
-  
-  tr:nth-child(even) td {
-    background-color: #f1f1f1;
-  }
-  .monthly-total{
-    margin-top: 10px;
+
+  td::before {
+    content: attr(data-label);
     font-weight: 600;
-    color: #4a148c;
-    font-size: 18px;
-    text-align: center;
-    font-family: 'Poppins';
+    color: #512da8;
   }
+
+  .monthly-total {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+}
