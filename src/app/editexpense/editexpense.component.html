@@ -1,42 +1,97 @@
 <app-navbarcomponent></app-navbarcomponent>
 
-<form (ngSubmit)="updateExpense()" #editForm="ngForm">
-    <h2>Edit Expense</h2>
-  <label>Description:</label>
-  <input type="text" [(ngModel)]="expenseObj.description" name="description" required />
+<div class="edit-container">
+  <h2>Edit Expense</h2>
 
-  <label>Category:</label>
-  <select [(ngModel)]="expenseObj.category" name="category" required>
-    <option value="Food">Food</option>
-    <option value="Travel">Travel</option>
-    <option value="Shopping">Shopping</option>
-    <option value="Bills">Bills</option>
-    <option value="Medical">Medical</option>
-    <option value="Entertainment">Entertainment</option>
-  </select>
+  <form (ngSubmit)="updateExpense()" #editForm="ngForm" novalidate>
 
-  <label>Amount:</label>
-  <input type="number" [(ngModel)]="expenseObj.amount" name="amount"  required />
-  <div class="error" *ngIf="expenseObj.amount <= 0 && editForm.submitted">
-    Amount must be greater than 0!
-  </div>
+    <!-- Description -->
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input 
+        type="text" 
+        id="description" 
+        [(ngModel)]="expenseObj.description" 
+        name="description" 
+        required 
+        placeholder="Enter expense description"
+      />
+      <div class="error" *ngIf="!expenseObj.description && editForm.submitted">
+        Description is required!
+      </div>
+    </div>
 
-  <label>Payment Method:</label>
-  <div>
-    <label>
-      <input type="radio" name="paymentMethod" value="Cash" [(ngModel)]="expenseObj.paymentMethod" /> Cash
-    </label>
-    <label>
-      <input type="radio" name="paymentMethod" value="UPI" [(ngModel)]="expenseObj.paymentMethod" /> Online
-    </label>
-    <label>
-        <input type="radio" name="paymentMethod" value="Card" [(ngModel)]="expenseObj.paymentMethod" /> Card
-      </label>
-  </div>
+    <!-- Category -->
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select 
+        id="category" 
+        [(ngModel)]="expenseObj.category" 
+        name="category" 
+        required
+      >
+        <option value="" disabled selected>Select category</option>
+        <option value="Food">🍔 Food</option>
+        <option value="Travel">✈️ Travel</option>
+        <option value="Shopping">🛍 Shopping</option>
+        <option value="Bills">📑 Bills</option>
+        <option value="Medical">💊 Medical</option>
+        <option value="Entertainment">🎬 Entertainment</option>
+      </select>
+      <div class="error" *ngIf="!expenseObj.category && editForm.submitted">
+        Category is required!
+      </div>
+    </div>
 
-  <label>Transaction Date:</label>
-  <input type="date" [(ngModel)]="expenseObj.transactionDate" name="transactionDate" required />
+    <!-- Amount -->
+    <div class="form-group">
+      <label for="amount">Amount (₹)</label>
+      <input 
+        type="number" 
+        id="amount" 
+        [(ngModel)]="expenseObj.amount" 
+        name="amount" 
+        required 
+        min="1"
+        placeholder="Enter amount"
+      />
+      <div class="error" *ngIf="expenseObj.amount <= 0 && editForm.submitted">
+        Amount must be greater than 0!
+      </div>
+    </div>
 
-  <button type="submit">Update</button>
-</form>
+    <!-- Payment Method -->
+    <div class="form-group">
+      <label>Payment Method</label>
+      <div class="payment-options">
+        <label><input type="radio" name="paymentMethod" value="Cash" [(ngModel)]="expenseObj.paymentMethod" /> Cash</label>
+        <label><input type="radio" name="paymentMethod" value="UPI" [(ngModel)]="expenseObj.paymentMethod" /> UPI</label>
+        <label><input type="radio" name="paymentMethod" value="Card" [(ngModel)]="expenseObj.paymentMethod" /> Card</label>
+      </div>
+      <div class="error" *ngIf="!expenseObj.paymentMethod && editForm.submitted">
+        Please select a payment method!
+      </div>
+    </div>
 
+    <!-- Date -->
+    <div class="form-group">
+      <label for="transactionDate">Transaction Date</label>
+      <input 
+        type="date" 
+        id="transactionDate" 
+        [(ngModel)]="expenseObj.transactionDate" 
+        name="transactionDate" 
+        required 
+      />
+      <div class="error" *ngIf="!expenseObj.transactionDate && editForm.submitted">
+        Date is required!
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-group">
+      <button type="submit">💾 Update Expense</button>
+    </div>
+
+  </form>
+</div>

@@ -1,66 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(to right, #f4f4f4, #e0eafc);
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Form Container ===== */
 .form-container {
-    max-width: 500px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #f2f2f2;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 90%;
+  margin: 60px auto;
+  padding: 30px 25px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.form-container:hover {
+  transform: scale(1.01);
+}
+
+/* ===== Heading ===== */
+h2 {
+  text-align: center;
+  color: #512da8;
+  margin-bottom: 25px;
+  font-weight: 600;
+  font-size: 26px;
+}
+
+/* ===== Form Elements ===== */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border 0.3s;
+}
+
+input:focus,
+select:focus {
+  border-color: #673ab7;
+  outline: none;
+}
+
+/* ===== Payment Options ===== */
+.payment-options {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+/* ===== Button ===== */
+button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #673ab7, #512da8);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #512da8, #3f1fa2);
+  transform: translateY(-2px);
+}
+
+/* ===== Error Text ===== */
+.error {
+  color: #d32f2f;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 600px) {
+  .form-container {
+    margin: 30px auto;
+    padding: 20px;
   }
-  h2{
-    font-family: 'Poppins';
+
+  h2 {
+    font-size: 22px;
   }
-  
-  .form-container h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: #333;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
+
   label {
-    font-weight: 600;
-    display: block;
-    margin-bottom: 6px;
-    font-family: 'Poppins';
+    font-size: 14px;
   }
-  
-  input[type="text"],
-  input[type="number"],
-  input[type="date"],
+
+  input,
   select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
+    font-size: 14px;
   }
-  
-  input[type="radio"] {
-    margin-right: 5px;
-    margin-left: 10px;
-  }
-  
+
   button {
-    width: 100%;
-    padding: 12px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+    font-size: 15px;
   }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  .error{
-    color: red;
-    font-size: 0.85rem;
-    margin-top: 4px;
-    font-family: 'Poppins';
-  }
+}
